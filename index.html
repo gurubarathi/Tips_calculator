@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	   #btn{
+	    text-align:center;
+
+	   }
+	   .tips{
+	     margin:auto;
+		 width:300px;
+		 height:300px;
+		 margin-top:3rem;
+		 border:1px solid black;
+		 padding:1rem;
+		 
+	   }
+	   .tips div{
+	    margin:20px;
+	    line-height:2rem;
+		font-size:1.5rem;
+	   }
+	   .tips div input{
+	    width:120px;
+		text-align:left;
+	   }
+	   
+	</style>
+</head>
+<body>
+  <div class="tips">
+    
+	   <div> <label>Bill Amount</label><input id="bill" value=""></div>
+	   <div><label>TIPS</label><input id="tips" value=""></div>
+	   <div><label>Tips rs</label><input id="tipsrs" value="" disabled></div>
+	   <div><label>TOTAL</label><input id="total" value="" disabled></div>
+	   <button id="btn2">CalCulate</button>
+	   <p id="demo"></p>
+	
+  </div>
+  <script>
+      let btn2=document.getElementById("btn2");
+	  //function 
+	  
+	  btn2.addEventListener("click", ()=> {
+	  
+	  let bill= document.getElementById("bill").value;
+	
+	 
+	  let tip=document.getElementById("tips").value;
+	  
+	  
+	  
+	   let text;
+	   
+	   if(bill=="" || tip=="")
+	    {
+	     text="please fill inputs";
+		 document.getElementById("total").value=text;
+		}
+	    else
+		{
+		  if(bill>=0 && tip>=0)
+			{ 
+				let tiprs=((tip/100)*bill);
+				document.getElementById("tipsrs").value=tiprs;
+				  
+				let totals=parseInt(tiprs)+parseInt(bill);
+				document.getElementById("total").value=totals;
+			}
+          else{
+	        text="please insert numbers";
+			document.getElementById("total").value=text;
+	        }
+		}
+	  
+	 })
+  </script>
+</body>
+</html>
